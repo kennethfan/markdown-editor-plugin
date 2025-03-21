@@ -15,9 +15,10 @@
     },
     "host_permissions": [
         "file://*",  
-        "https://*.example.com/*"  
+        "https://*",
+        "http://*"
     ],
     "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: file: https://*.example.com; style-src 'self' 'unsafe-inline'"
+        "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: file: https: http:; style-src 'self' 'unsafe-inline'"
     }
 }
