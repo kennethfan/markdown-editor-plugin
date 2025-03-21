@@ -9,7 +9,7 @@
             "32": "icon32.png"
         }
     },
-    "permissions": ["tabs", "activeTab"],
+    "permissions": ["tabs", "activeTab", "clipboardWrite"],
     "background": {
         "service_worker": "background.js"
     },

@@ -51,3 +51,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
         hljs.highlightElement(block);
     });
 });
+
+// 获取按钮和 toast 元素
+const copyButton = document.getElementById('copy-button');
+const saveButton = document.getElementById('save-button');
+const toast = document.getElementById('toast');
+
+// 复制按钮点击事件处理
+copyButton.addEventListener('click', () => {
+    const text = editor.value;
+    navigator.clipboard.writeText(text).then(() => {
+        // 显示 toast 提示
+        toast.style.opacity = 1;
+        setTimeout(() => {
+            toast.style.opacity = 0;
+        }, 2000);
+    }).catch((err) => {
+        console.error('复制失败: ', err);
+    });
+});
+
+// 保存按钮点击事件处理
+saveButton.addEventListener('click', () => {
+    const text = editor.value;
+    const blob = new Blob([text], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'markdown.md';
+    a.click();
+    URL.revokeObjectURL(url);
+});
