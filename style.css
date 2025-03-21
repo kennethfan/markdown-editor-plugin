@@ -116,7 +116,8 @@ body {
     background-color: #007BFF;
     color: white;
     border: none;
-    padding: 10px 20px;
+    /* 增加内边距以扩大可点击区域 */
+    padding: 15px 30px; 
     border-radius: 4px;
     cursor: pointer;
     margin: 0 5px;
