@@ -72,13 +72,25 @@ copyButton.addEventListener('click', () => {
 });
 
 // 保存按钮点击事件处理
-saveButton.addEventListener('click', () => {
+saveButton.addEventListener('click', async () => {
     const text = editor.value;
-    const blob = new Blob([text], { type: 'text/markdown' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'markdown.md';
-    a.click();
-    URL.revokeObjectURL(url);
+    try {
+        // 使用 showSaveFilePicker API 让用户选择保存路径和文件名
+        const fileHandle = await window.showSaveFilePicker({
+            suggestedName: 'markdown.md',
+            types: [
+                {
+                    description: 'Markdown files',
+                    accept: {
+                        'text/markdown': ['.md']
+                    }
+                }
+            ]
+        });
+        const writable = await fileHandle.createWritable();
+        await writable.write(text);
+        await writable.close();
+    } catch (err) {
+        console.error('保存失败: ', err);
+    }
 });
