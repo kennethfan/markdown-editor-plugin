@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor and Preview</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 highlight.js 的 CSS 文件 -->
+    <link rel="stylesheet" href="lib/highlight.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="editor">
+            <textarea id="markdown-editor" placeholder="Type your Markdown here..."></textarea>
+        </div>
+        <div class="preview" id="markdown-preview"></div>
+    </div>
+    <!-- 引入 marked 文件 -->
+    <script src="lib/marked.min.js"></script>
+    <!-- 引入 highlight.js 的 JavaScript 文件 -->
+    <script src="lib/highlight.min.js"></script>
+    <script src="lib/go.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

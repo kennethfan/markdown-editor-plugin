@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Markdown Editor and Preview",
+    "version": "1.0",
+    "description": "A simple Markdown editor and preview tool",
+    "action": {
+        "default_icon": {
+            "16": "icon16.png",
+            "32": "icon32.png"
+        }
+    },
+    "permissions": ["tabs", "activeTab"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "file://*",  
+        "https://*.example.com/*"  
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: file: https://*.example.com; style-src 'self' 'unsafe-inline'"
+    }
+}
